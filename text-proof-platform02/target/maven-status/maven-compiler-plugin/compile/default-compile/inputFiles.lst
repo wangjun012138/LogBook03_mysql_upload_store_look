@@ -1,0 +1,14 @@
+D:\JavaCode\text-proof-platform02\src\main\java\com\wangjun\text_proof_platform\common\ApiResponse.java
+D:\JavaCode\text-proof-platform02\src\main\java\com\wangjun\text_proof_platform\common\GlobalExceptionHandler.java
+D:\JavaCode\text-proof-platform02\src\main\java\com\wangjun\text_proof_platform\config\SecurityConfig.java
+D:\JavaCode\text-proof-platform02\src\main\java\com\wangjun\text_proof_platform\modules\user\controller\AuthController.java
+D:\JavaCode\text-proof-platform02\src\main\java\com\wangjun\text_proof_platform\modules\user\dto\ChangePwdRequest.java
+D:\JavaCode\text-proof-platform02\src\main\java\com\wangjun\text_proof_platform\modules\user\dto\LoginRequest.java
+D:\JavaCode\text-proof-platform02\src\main\java\com\wangjun\text_proof_platform\modules\user\dto\RegisterRequest.java
+D:\JavaCode\text-proof-platform02\src\main\java\com\wangjun\text_proof_platform\modules\user\dto\ResetPwdRequest.java
+D:\JavaCode\text-proof-platform02\src\main\java\com\wangjun\text_proof_platform\modules\user\entity\User.java
+D:\JavaCode\text-proof-platform02\src\main\java\com\wangjun\text_proof_platform\modules\user\entity\VerificationCode.java
+D:\JavaCode\text-proof-platform02\src\main\java\com\wangjun\text_proof_platform\modules\user\repository\UserRepository.java
+D:\JavaCode\text-proof-platform02\src\main\java\com\wangjun\text_proof_platform\modules\user\repository\VerificationCodeRepository.java
+D:\JavaCode\text-proof-platform02\src\main\java\com\wangjun\text_proof_platform\modules\user\service\AuthService.java
+D:\JavaCode\text-proof-platform02\src\main\java\com\wangjun\text_proof_platform\TextProofPlatformApplication.java

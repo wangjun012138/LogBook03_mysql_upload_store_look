@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  # ================= MySQL 服务 =================
+  mysql-db:
+    image: mysql:8.0
+    container_name: text-proof-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword  # 容器数据库的 root 密码
+      MYSQL_DATABASE: text_proof_db      # 自动创建数据库
+      MYSQL_USER: platform_user          # 创建一个专用用户(可选)
+      MYSQL_PASSWORD: platform_password  # 专用用户密码(可选)
+    ports:
+      - "3307:3306" # 映射到宿主机的 3307，避免和你本地安装的 MySQL (3306) 冲突
+    networks:
+      - text-proof-net
+    command: --default-authentication-plugin=mysql_native_password
+
+  # ================= Java 应用服务 =================
+  text-proof-app:
+    build: .                             # 根据当前目录的 Dockerfile 构建
+    container_name: text-proof-app
+    restart: on-failure
+    ports:
+      - "8080:8080"                      # 宿主机 8080 -> 容器 8080
+    depends_on:
+      - mysql-db                         # 等 MySQL 启动后再启动 App
+    environment:
+      # 【核心】覆盖 application.properties 里的配置
+      # 在 Docker 网络中，数据库地址必须写服务名 "mysql-db"，不能写 localhost
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/text_proof_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: rootpassword
+    networks:
+      - text-proof-net
+
+# ================= 定义桥接网络 =================
+networks:
+  text-proof-net:
+    driver: bridge
